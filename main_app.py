@@ -5,10 +5,10 @@ Created on Thu Dec 12 18:11:47 2024
 @author: Jiaqi Ye
 """
 
-import time
+# import time
 import folium
 import csv
-import random
+# import random
 import streamlit as st
 from streamlit_folium import st_folium
 from module_chatbot import ChatbotModule
