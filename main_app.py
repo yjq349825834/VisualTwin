@@ -24,14 +24,14 @@ TRAIN_LOGO_PATH = "data/christmas_train.png"
 MAP_CENTER = [51.853749549356415, -0.10878609932857745]  
 
 STATION_VIDEOS = {
-    "Cambridge": "http://localhost:8000/cambridge_1.mp4",
-    "London Kings Cross": "http://localhost:8000/london_kings_cross_1.mp4",
+    "Cambridge": "data/cambridge_1.mp4",
+    "London Kings Cross": "data/london_kings_cross_1.mp4",
 }
 
 IMAGES = [
-    "http://localhost:8000/measure_1.png",
-    "http://localhost:8000/measure_3.png",
-    "http://localhost:8000/measure_2.png",
+    "data/measure_1.png",
+    "data/measure_3.png",
+    "data/measure_2.png",
 ]
 
 
