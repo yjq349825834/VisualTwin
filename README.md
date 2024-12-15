@@ -1,6 +1,6 @@
 # Visual Twin Proposal
 
-This repository hosts the Visual Twin Proposal project, a data-driven railway monitoring platform. It integrates a Streamlit app, chatbot interaction, and object detection for enhanced railway condition monitoring.
+This repository hosts the Visual Twin Open Data project proposal, a visual data-driven railway monitoring platform. It integrates a Streamlit app, interactive visualisation, object detection, and chatbot interaction for enhanced railway condition monitoring and asset management.
 
 ![App Screenshot](data/app_1.0.png)
 
