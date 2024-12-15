@@ -199,8 +199,8 @@ def main():
     st_folium(uk_map, width=700, height=500)
 
     # Integrate chatbot module
-    chatbot = ChatbotModule()
-    chatbot.display_chatbot()
+    #chatbot = ChatbotModule()
+    #chatbot.display_chatbot()
 
 # Entry point
 if __name__ == "__main__":
