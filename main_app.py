@@ -11,10 +11,10 @@ import csv
 import random
 import streamlit as st
 from streamlit_folium import st_folium
-from chatbot import ChatbotModule
+from module_chatbot import ChatbotModule
 
 # Load data
-input_file = "updated_resampled_route_coordinates2.csv"
+input_file = "data/route_info_vibrations.csv"
 route = []
 vibrations = []
 stations = []
@@ -54,7 +54,7 @@ st.title("Railway 'Visual Twin'")
 
 st.markdown("""
 Explore a dynamic and interactive representation of the railway network between Cambridge and London Kings Cross. 
-This app visualizes route data, station activity, and vibration metrics in real-time, helping you avoid jams, identify key insights, and high-risk areas.
+This app visualizes route data, station activity, and vibration metrics in real-time, helping you avoid congestions, identify key insights and high-risk areas.
 """)
 
 # Example mapping of station names to video URLs
@@ -96,9 +96,9 @@ def add_route(map_obj, route, vibrations, color_toggle=False):
     red_segments = []  # To store the start and end points of red segments
     
     images = [
-    "http://localhost:8000/red1.png",
-    "http://localhost:8000/red3.png",
-    "http://localhost:8000/red2.png",
+    "http://localhost:8000/measure_1.png",
+    "http://localhost:8000/measure_3.png",
+    "http://localhost:8000/measure_2.png",
     ]  # List of unique image URLs (replace with actual URLs)
     image_index = 0
     if color_toggle:
