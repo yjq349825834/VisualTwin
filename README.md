@@ -23,6 +23,12 @@ This repository hosts the Visual Twin Open Data project proposal, a visual data-
    ```bash
    streamlit run app/visual_twin_app.py
 
+## Suggested Sources of Open Data
+- [Open Sensor Data for Rail 2023](https://data.fid-move.de/dataset/osdar23) 
+- [The Office of Rail and Road Data Portal](http://dataportal.orr.gov.uk/)
+- [Network Rail Data Feeds](https://datafeeds.networkrail.co.uk/)
+
+
 ## Project Structure
 ```plaintext
 VisualTwin/
