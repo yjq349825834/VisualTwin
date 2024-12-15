@@ -1,6 +1,4 @@
-streamlit
-folium
-streamlit-folium
-transformers
-torch
-csv
+streamlit==1.37.1
+streamlit-folium==0.23.2
+transformers==4.44.2
+torch==2.1.0
