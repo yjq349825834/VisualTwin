@@ -10,5 +10,5 @@ This repository hosts the Visual Twin Proposal project, a data-driven railway mo
 ## Installation
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/visual-twin-proposal.git
-   cd visual-twin-proposal
+   git clone https://github.com/yjq349825834/VisualTwin.git
+   cd VisualTwin
