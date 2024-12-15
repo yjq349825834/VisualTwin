@@ -29,7 +29,7 @@ STATION_VIDEOS = {
 }
 
 IMAGES = [
-    "data/measure_1.png",
+    "https://github.com/yjq349825834/VisualTwin/blob/144507ad041e3d12429d5f6123f9ff8e5932bb21/data/measure_1.png",
     "data/measure_3.png",
     "data/measure_2.png",
 ]
