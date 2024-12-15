@@ -12,3 +12,11 @@ This repository hosts the Visual Twin Proposal project, a data-driven railway mo
    ```bash
    git clone https://github.com/yjq349825834/VisualTwin.git
    cd VisualTwin
+
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+
+3. Run the Streamlit app:
+   ```bash
+   streamlit run app/visual_twin_app.py
