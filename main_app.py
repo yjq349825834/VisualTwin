@@ -24,14 +24,14 @@ TRAIN_LOGO_PATH = "data/christmas_train.png"
 MAP_CENTER = [51.853749549356415, -0.10878609932857745]  
 
 STATION_VIDEOS = {
-    "Cambridge": "https://drive.google.com/file/d/14ecaqzKkjiKexqSOWpxyd9BTYEU5eb0-/view?usp=sharing",
-    "London Kings Cross": "https://drive.google.com/file/d/1h_5JP7_hMTheeWOfURM0_O5JqhJUfCYq/view?usp=sharing",
+    "Cambridge": "https://drive.google.com/file/d/14ecaqzKkjiKexqSOWpxyd9BTYEU5eb0-",
+    "London Kings Cross": "https://drive.google.com/file/d/1h_5JP7_hMTheeWOfURM0_O5JqhJUfCYq",
 }
 
 IMAGES = [
-    "https://drive.google.com/file/d/14jwiGlbTqkDSTiH4DjLExQdN4j4vLGOF/view?usp=sharing",
-    "https://drive.google.com/file/d/1ZuOIgdq2uRipsKsbOx6bjWEtsitGO5y-/view?usp=sharing",
-    "https://drive.google.com/file/d/1oWzTvz8hmRcyA8qIgZM1mVkQ_suuxVcM/view?usp=sharing",
+    "https://drive.google.com/file/d/14jwiGlbTqkDSTiH4DjLExQdN4j4vLGOF",
+    "https://drive.google.com/file/d/1ZuOIgdq2uRipsKsbOx6bjWEtsitGO5y-",
+    "https://drive.google.com/file/d/1oWzTvz8hmRcyA8qIgZM1mVkQ_suuxVcM",
 ]
 
 
