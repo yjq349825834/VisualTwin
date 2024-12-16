@@ -29,7 +29,7 @@ STATION_VIDEOS = {
 }
 
 IMAGES = [
-    "https://drive.google.com/file/d/14jwiGlbTqkDSTiH4DjLExQdN4j4vLGOF",
+    "https://raw.githubusercontent.com/yjq349825834/VisualTwin/3654a311fd1b4d9f28db2a1b1475f0ffffd4a369/data/measure_1.png",
     "https://drive.google.com/file/d/1ZuOIgdq2uRipsKsbOx6bjWEtsitGO5y-",
     "https://drive.google.com/file/d/1oWzTvz8hmRcyA8qIgZM1mVkQ_suuxVcM",
 ]
