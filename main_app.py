@@ -30,8 +30,8 @@ STATION_VIDEOS = {
 
 IMAGES = [
     "https://raw.githubusercontent.com/yjq349825834/VisualTwin/3654a311fd1b4d9f28db2a1b1475f0ffffd4a369/data/measure_1.png",
-    "https://raw.githubusercontent.com/yjq349825834/VisualTwin/4ac83c4e8c9825bf35bbe4b9ea6ac930bbb7f1da/data/measure_2.png",
     "https://raw.githubusercontent.com/yjq349825834/VisualTwin/4ac83c4e8c9825bf35bbe4b9ea6ac930bbb7f1da/data/measure_3.png",
+    "https://raw.githubusercontent.com/yjq349825834/VisualTwin/4ac83c4e8c9825bf35bbe4b9ea6ac930bbb7f1da/data/measure_2.png",
 ]
 
 
