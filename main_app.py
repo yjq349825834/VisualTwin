@@ -24,14 +24,14 @@ TRAIN_LOGO_PATH = "data/christmas_train.png"
 MAP_CENTER = [51.853749549356415, -0.10878609932857745]  
 
 STATION_VIDEOS = {
-    "Cambridge": "https://drive.google.com/file/d/14ecaqzKkjiKexqSOWpxyd9BTYEU5eb0-",
-    "London Kings Cross": "https://drive.google.com/file/d/1h_5JP7_hMTheeWOfURM0_O5JqhJUfCYq",
+    "Cambridge": "https://raw.githubusercontent.com/yjq349825834/VisualTwin/4ac83c4e8c9825bf35bbe4b9ea6ac930bbb7f1da/data/cambridge_1.mp4",
+    "London Kings Cross": "//raw.githubusercontent.com/yjq349825834/VisualTwin/4ac83c4e8c9825bf35bbe4b9ea6ac930bbb7f1da/data/london_kings_cross_1.mp4",
 }
 
 IMAGES = [
     "https://raw.githubusercontent.com/yjq349825834/VisualTwin/3654a311fd1b4d9f28db2a1b1475f0ffffd4a369/data/measure_1.png",
-    "https://drive.google.com/file/d/1ZuOIgdq2uRipsKsbOx6bjWEtsitGO5y-",
-    "https://drive.google.com/file/d/1oWzTvz8hmRcyA8qIgZM1mVkQ_suuxVcM",
+    "https://raw.githubusercontent.com/yjq349825834/VisualTwin/4ac83c4e8c9825bf35bbe4b9ea6ac930bbb7f1da/data/measure_2.png",
+    "https://raw.githubusercontent.com/yjq349825834/VisualTwin/4ac83c4e8c9825bf35bbe4b9ea6ac930bbb7f1da/data/measure_3.png",
 ]
 
 
