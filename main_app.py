@@ -165,8 +165,7 @@ def main():
     )
 
     st.markdown("""
-        Explore a dynamic and interactive representation of the railway network between Cambridge and London Kings Cross. This app visualizes route data, station activity, and vibration metrics in real-time, helping you avoid congestions, identify key insights, and high-risk areas.  
-        Visit the [Visual Twin GitHub Repo](https://github.com/yjq349825834/VisualTwin) for more details.
+        Explore a dynamic and interactive representation of the railway network between Cambridge and London Kings Cross. This app visualizes route data, station activity, and vibration metrics in real-time, helping you avoid congestions, identify key insights, and high-risk areas. Visit the [Visual Twin GitHub Repo](https://github.com/yjq349825834/VisualTwin) for more details.
     """)
 
     # Load route and station data
