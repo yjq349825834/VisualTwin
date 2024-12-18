@@ -2,3 +2,5 @@ streamlit==1.37.1
 streamlit-folium==0.23.2
 transformers==4.44.2
 torch==2.1.0
+tf-keras 
+tensorflow == 2.15.0
