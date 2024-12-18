@@ -21,7 +21,7 @@ class ChatbotModule:
         # Attempt to load the advanced chatbot model
         device = 0 if torch.cuda.is_available() else -1
         try:
-            self.advanced_chatbot = pipeline(task="text2text-generation", model="facebook/blenderbot-400M-distill", device=device)
+            self.advanced_chatbot = pipeline(task="text2text-generation", model="facebook/blenderbot_small-90M", device=device)
         except Exception as e:
             self.advanced_chatbot = None
             st.error(f"Failed to load the advanced chatbot model: {e}")
