@@ -149,6 +149,8 @@ def add_image(img_path, style=""):
     return f'<img src="data:image/png;base64,{img_data}" style="{style}" />'
 
 
+from datetime import datetime, timedelta
+
 def main():
     st.markdown(
         f"""
@@ -173,29 +175,64 @@ def main():
     route, vibrations, stations = load_data(INPUT_FILE)
     normalize_station_values(stations)
 
-    # Create the map
-    uk_map = folium.Map(location=MAP_CENTER, zoom_start=7)
-    folium.Marker(location=route[0], popup="Cambridge", icon=folium.Icon(color="green")).add_to(uk_map)
-    folium.Marker(location=route[-1], popup="London Kings Cross", icon=folium.Icon(color="red")).add_to(uk_map)
+    # Initialize session state
+    if "search_clicked" not in st.session_state:
+        st.session_state.search_clicked = False
+
+    # User input for departure, destination, date, and time
+    st.sidebar.header("Route Selection")
+    departure = st.sidebar.selectbox("Select Departure Station", ["", "Cambridge", "London Kings Cross"], index=0)
+    destination = st.sidebar.selectbox("Select Destination Station", ["", "Cambridge", "London Kings Cross"], index=0)
+
+    # Date selection
+    travel_date = st.sidebar.date_input("Select Travel Date", min_value=datetime.today())
+
+    # Time selection in 30-minute intervals
+    times = [datetime(2000, 1, 1, hour, minute).strftime("%H:%M") for hour in range(24) for minute in (0, 30)]
+    travel_time = st.sidebar.selectbox("Select Departure Time", times)
+
+    # Combine date and time into a single datetime object
+    selected_datetime = datetime.combine(travel_date, datetime.strptime(travel_time, "%H:%M").time())
+
+    # Add search button
+    if st.sidebar.button("Search Route"):
+        if departure and destination and departure != destination:
+            st.session_state.search_clicked = True
+        else:
+            st.sidebar.warning("Please select valid Departure and Destination stations.")
 
     # Congestion and vibration toggles
+    st.sidebar.header("Passengers")
     if "show_stations" not in st.session_state:
         st.session_state.show_stations = False
 
-    if st.button("Avoiding Congestion"):
+    if st.sidebar.button("Avoiding Congestion"):
         st.session_state.show_stations = not st.session_state.show_stations
 
+
+    st.sidebar.header("Operators")
     if "color_toggle" not in st.session_state:
         st.session_state.color_toggle = False
 
-    if st.button("Track Assessment"):
+    if st.sidebar.button("Track Assessment"):
         st.session_state.color_toggle = not st.session_state.color_toggle
 
-    # Add markers and routes
-    if st.session_state.show_stations:
-        add_station_markers(uk_map, stations, STATION_VIDEOS)
 
-    add_route(uk_map, route, vibrations, color_toggle=st.session_state.color_toggle)
+    # Create the map
+    uk_map = folium.Map(location=MAP_CENTER, zoom_start=7)
+
+    # Add departure and destination markers and route if search is clicked
+    if st.session_state.search_clicked:
+        folium.Marker(location=route[0], popup=departure, icon=folium.Icon(color="green")).add_to(uk_map)
+        folium.Marker(location=route[-1], popup=destination, icon=folium.Icon(color="red")).add_to(uk_map)
+
+        # Add markers and routes
+        if st.session_state.show_stations:
+            add_station_markers(uk_map, stations, STATION_VIDEOS)
+
+        add_route(uk_map, route, vibrations, color_toggle=st.session_state.color_toggle)
+
+    # Display map
     st_folium(uk_map, width=700, height=500)
 
     # Integrate chatbot module
@@ -205,3 +242,6 @@ def main():
 # Entry point
 if __name__ == "__main__":
     main()
+
+
+
