@@ -66,30 +66,33 @@ def normalize_station_values(stations):
         station["radius"] = 6 + 14 * (station["value"] - min_value) / (max_value - min_value)
 
 # Add station bulbbles and feed visual data to the map
-def add_station_markers(map_obj, stations, station_videos):
-    for station in stations:
-        station_name = station["name"]
-        video_url = station_videos.get(station_name, "")
-        popup_html = f"""
-        <div>
-            <h4>{station_name}</h4>
-            <p>Entries/Exits: {int(station['value'])}</p>
-            {"<video controls width='300'><source src='" + video_url + "' type='video/mp4'></video>" if video_url else "<p>Video unavailable</p>"}
-        </div>
-        """
-        popup = folium.Popup(popup_html, max_width=350)
-        folium.CircleMarker(
-            location=(station["lat"], station["lon"]),
-            radius=station["radius"],
-            color=None,
-            fill=True,
-            fill_color="red",
-            fill_opacity=0.5,
-            tooltip=f"{station_name}: {int(station['value'])} entries/exits",
-            popup=popup,
-        ).add_to(map_obj)
+def add_station_markers(map_obj, stations, station_videos, station_status = False):
+    if station_status:
+        for station in stations:
+            station_name = station["name"]
+            video_url = station_videos.get(station_name, "")
+            popup_html = f"""
+            <div>
+                <h4>{station_name}</h4>
+                <p>Entries/Exits: {int(station['value'])}</p>
+                {"<video controls width='300'><source src='" + video_url + "' type='video/mp4'></video>" if video_url else "<p>Video unavailable</p>"}
+            </div>
+            """
+            popup = folium.Popup(popup_html, max_width=350)
+            folium.CircleMarker(
+                location=(station["lat"], station["lon"]),
+                radius=station["radius"],
+                color=None,
+                fill=True,
+                fill_color="red",
+                fill_opacity=0.5,
+                tooltip=f"{station_name}: {int(station['value'])} entries/exits",
+                popup=popup,
+            ).add_to(map_obj)
+    else:
+        return
 
-# Add route with vibration levels
+# Show the route, and the track assessment results if required
 def add_route(map_obj, route, vibrations, color_toggle=False):
     red_segments = []
     image_index = 0  # Index for red segments' images
@@ -175,10 +178,6 @@ def main():
     route, vibrations, stations = load_data(INPUT_FILE)
     normalize_station_values(stations)
 
-    # Initialize session state
-    if "search_clicked" not in st.session_state:
-        st.session_state.search_clicked = False
-
     # User input for departure, destination, date, and time
     st.sidebar.header("Route Selection")
     departure = st.sidebar.selectbox("Select Departure Station", ["", "Cambridge", "London Kings Cross"], index=0)
@@ -194,6 +193,10 @@ def main():
     # Combine date and time into a single datetime object
     selected_datetime = datetime.combine(travel_date, datetime.strptime(travel_time, "%H:%M").time())
 
+    # Initialize Search Route button state
+    if "search_clicked" not in st.session_state:
+        st.session_state.search_clicked = False
+        
     # Add search button
     if st.sidebar.button("Search Route"):
         if departure and destination and departure != destination:
@@ -201,22 +204,29 @@ def main():
         else:
             st.sidebar.warning("Please select valid Departure and Destination stations.")
 
-    # Congestion and vibration toggles
+    # Initialize Avoiding Congestion button state
     st.sidebar.header("Passengers")
-    if "show_stations" not in st.session_state:
-        st.session_state.show_stations = False
-
+    if "station_status" not in st.session_state:
+        st.session_state.station_status = False
+    
+    # Add Avoiding Congestion button
     if st.sidebar.button("Avoiding Congestion"):
-        st.session_state.show_stations = not st.session_state.show_stations
+        if st.session_state.search_clicked == True:
+            st.session_state.station_status = not st.session_state.station_status
+        else:
+            st.sidebar.warning("Please search a valid route first.")
 
-
+    # Initialize Track Assessment button state
     st.sidebar.header("Operators")
     if "color_toggle" not in st.session_state:
         st.session_state.color_toggle = False
-
+    
+    # Add Track Assessment button
     if st.sidebar.button("Track Assessment"):
-        st.session_state.color_toggle = not st.session_state.color_toggle
-
+        if st.session_state.search_clicked == True:
+            st.session_state.color_toggle = not st.session_state.color_toggle
+        else:
+            st.sidebar.warning("Please search a valid route first.")
 
     # Create the map
     uk_map = folium.Map(location=MAP_CENTER, zoom_start=7)
@@ -226,10 +236,10 @@ def main():
         folium.Marker(location=route[0], popup=departure, icon=folium.Icon(color="green")).add_to(uk_map)
         folium.Marker(location=route[-1], popup=destination, icon=folium.Icon(color="red")).add_to(uk_map)
 
-        # Add markers and routes
-        if st.session_state.show_stations:
-            add_station_markers(uk_map, stations, STATION_VIDEOS)
+        # Display station status if required
+        add_station_markers(uk_map, stations, STATION_VIDEOS, station_status=st.session_state.station_status)
 
+        # Visualise track conditions if required
         add_route(uk_map, route, vibrations, color_toggle=st.session_state.color_toggle)
 
     # Display map
