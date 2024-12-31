@@ -1,9 +1,9 @@
 # Visual Twin: Enhanced Railway Asset Mangment
 
 This repository hosts the Visual Twin Open Data project proposal, a visual data-driven railway monitoring platform. It integrates a Streamlit app, interactive visualisation, object detection, and chatbot interaction for enhanced railway asset condition monitoring and supporting predictive maintenance.
-Play with the app directly - [Railway Visual Twin](https://railway-visual-twin-open-data.streamlit.app/), or follow the instructions below to DIY it for more fun. 
+Play with the app directly - [Railway Visual Twin](https://railway-visual-twin-open-data-testing.streamlit.app/), or follow the instructions below to DIY it for more fun. 
 
-![App Screenshot](data/app_1.0.png)
+![App Screenshot](data/app_2.0.png)
 
 ## Features
 - **Visual Railway Monitoring**: Interactive visualization of UK railway usage and routes.
@@ -22,7 +22,7 @@ Play with the app directly - [Railway Visual Twin](https://railway-visual-twin-o
 
 3. Run the Streamlit app:
    ```bash
-   streamlit run app/visual_twin_app.py
+   streamlit run ./main_app.py
 
 ## Suggested Sources of Open Data
 - [Open Sensor Data for Rail 2023](https://data.fid-move.de/dataset/osdar23) 
