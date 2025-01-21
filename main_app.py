@@ -155,20 +155,34 @@ def add_image(img_path, style=""):
 from datetime import datetime, timedelta
 
 def main():
+    # st.markdown(
+    #     f"""
+    #     <div style="text-align: left; position: relative;">
+    #         <h1 style="display: inline-block; margin-bottom: 0; padding: 0;">Railway Visual<span style="position: relative;"> Twin</span></h1>
+    #         <div style="position: absolute; top: -20px; left: 3%; transform: translate(-50%, 0);">
+    #             {add_image(HAT_LOGO_PATH, "width: 50px; height: auto;")}
+    #         </div>
+    #         <div style="position: absolute; top: -35px; left: 70%; transform: translate(-50%, 0);">
+    #             {add_image(TRAIN_LOGO_PATH, "width: 200px; height: auto;")}
+    #         </div>
+    #     </div>
+    #     """,
+    #     unsafe_allow_html=True,
+    # )
+
     st.markdown(
         f"""
-        <div style="text-align: left; position: relative;">
-            <h1 style="display: inline-block; margin-bottom: 0; padding: 0;">Railway Visual<span style="position: relative;"> Twin</span></h1>
-            <div style="position: absolute; top: -20px; left: 3%; transform: translate(-50%, 0);">
-                {add_image(HAT_LOGO_PATH, "width: 50px; height: auto;")}
-            </div>
-            <div style="position: absolute; top: -35px; left: 70%; transform: translate(-50%, 0);">
+        <div style="display: flex; position: relative; align-items: baseline;">
+            <h1 style="margin: 0; font-size: 2em; line-height: 1;">Railway Visual Twin</h1>
+            <a href="https://yjq349825834.github.io/mysite/" target="_blank" style="margin-left: 175px; font-size: 1.0em; text-decoration: none; color: blue;">by J. Ye</a>
+            <div style="position: absolute; top: -30px; left: 54%; transform: translate(-50%, 0);">
                 {add_image(TRAIN_LOGO_PATH, "width: 200px; height: auto;")}
             </div>
         </div>
         """,
         unsafe_allow_html=True,
     )
+
 
     st.markdown("""
         Explore a dynamic and interactive representation of the railway network by selecting a valid route from the sidebar on the left. This app visualizes up-to-date route data, station activities, and vibration metrics, helping you avoid congestions, identify key insights, and high-risk areas. Visit the [Visual Twin GitHub Repo](https://github.com/yjq349825834/VisualTwin) for more details, feel free to fork for further improvements.
